@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("topicos")
@@ -39,6 +40,26 @@ public class TopicoController {
         var topico = repository.getReferenceById(id);
 
         return ResponseEntity.ok(new DadosDetalhamentoTopico(topico));
+    }
+
+    @PutMapping
+    @Transactional
+    //Devolve método HTTP mais apropriado - COD 200
+    public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoTopico dados){
+        var topico = repository.getReferenceById(dados.id());
+        topico.atualizarInformacoes(dados);
+
+        return ResponseEntity.ok(new DadosDetalhamentoTopico(topico));
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    //Devolve método HTTP mais apropriado - COD 204
+    public ResponseEntity excluir(@PathVariable Long id){
+        Optional<Topico> topicoOptional = repository.findById(id);
+        topicoOptional.ifPresent(topico -> repository.deleteById(id));
+
+        return topicoOptional.isPresent() ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 
 }

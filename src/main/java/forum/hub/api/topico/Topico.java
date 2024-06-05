@@ -29,6 +29,7 @@ public class Topico {
     private String curso;
     private String respostas;
 
+
     public Topico(DadosRegistrarTopico dados) {
         this.mensagem = dados.mensagem();
         this.curso = dados.curso();
@@ -37,6 +38,15 @@ public class Topico {
         this.autor = dados.autor();
         this.status = "status";
         this.respostas = "resposta";
+    }
+
+    public void atualizarInformacoes(DadosAtualizacaoTopico dados) {
+        if (dados.titulo() != null){
+            this.titulo = dados.titulo();
+        }
+        if (dados.mensagem() != null){
+            this.mensagem = dados.mensagem();
+        }
     }
 
 }

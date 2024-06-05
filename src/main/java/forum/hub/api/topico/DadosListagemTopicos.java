@@ -2,7 +2,8 @@ package forum.hub.api.topico;
 
 import java.time.LocalDateTime;
 
-public record DadosListagemTopicos(String titulo,
+public record DadosListagemTopicos(Long id,
+                                   String titulo,
                                    String mensagem,
                                    LocalDateTime data,
                                    String status,
@@ -10,6 +11,6 @@ public record DadosListagemTopicos(String titulo,
                                    String curso) {
 
     public DadosListagemTopicos(Topico topico){
-        this(topico.getTitulo(), topico.getMensagem(), topico.getData(), topico.getStatus(), topico.getAutor(), topico.getCurso());
+        this(topico.getId(), topico.getTitulo(), topico.getMensagem(), topico.getData(), topico.getStatus(), topico.getAutor(), topico.getCurso());
     }
 }
