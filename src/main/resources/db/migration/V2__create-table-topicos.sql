@@ -1,0 +1,2 @@
+ALTER TABLE topicos
+CHANGE COLUMN dataCriacao data DATETIME NOT NULL;
