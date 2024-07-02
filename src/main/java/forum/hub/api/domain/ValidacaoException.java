@@ -1,4 +1,4 @@
-package forum.hub.api;
+package forum.hub.api.domain;
 
 public class ValidacaoException extends RuntimeException {
     public ValidacaoException(String mensagem) {

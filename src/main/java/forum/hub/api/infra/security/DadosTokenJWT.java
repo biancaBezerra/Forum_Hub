@@ -1,4 +1,4 @@
-package med.voll.api.infra.security;
+package forum.hub.api.infra.security;
 
 public record DadosTokenJWT(String token) {
 

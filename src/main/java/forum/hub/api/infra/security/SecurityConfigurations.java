@@ -1,4 +1,4 @@
-package med.voll.api.infra.security;
+package forum.hub.api.infra.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +16,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurations {
-
     @Autowired
     private SecurityFilter securityFilter;
 
@@ -40,6 +39,7 @@ public class SecurityConfigurations {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
+
         return new BCryptPasswordEncoder();
     }
 }
