@@ -1,0 +1,7 @@
+package forum.hub.api;
+
+public class ValidacaoException extends RuntimeException {
+    public ValidacaoException(String mensagem) {
+        super(mensagem);
+    }
+}
